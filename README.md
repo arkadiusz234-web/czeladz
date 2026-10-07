@@ -1,19 +1,22 @@
 # Czeladź Staż
 
+Wybierz oddział z poniższej listy, aby przejść do szczegółów:
+
 <br>
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> [PERSONALIZOWANE]](personalizowane.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> [PERSONALIZOWANE]](personalizowane.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> Chirurgia](chirurgia.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="m18 2 4 4"/><path d="m17 7 3-3"/><path d="M19 9 8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="m9 11 4 4"/><path d="m5 19-3 3"/><path d="m14 4 6 6"/></svg> Chirurgia](chirurgia.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> Chirurgia Urazowo-Ortopedyczna](chirurgia_urazowo_ortopedyczna.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-4.6 4.6c-.7-.7-1.69 0-2.5 0a2.5 2.5 0 1 0 0 5 .5.5 0 0 1 .5.5 2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5l4.6-4.6Z"/></svg> Chirurgia Urazowo-Ortopedyczna](chirurgia_urazowo_ortopedyczna.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> Choroby Wewnętrzne](choroby_wewnetrzne.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> Choroby Wewnętrzne](choroby_wewnetrzne.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> Medycyna Ratunkowa](medycyna_ratunkowa.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Medycyna Ratunkowa](medycyna_ratunkowa.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> Medycyna Rodzinna](medycyna_rodzinna.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"/><circle cx="20" cy="10" r="2"/></svg> Medycyna Rodzinna](medycyna_rodzinna.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> OIT](oit.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> OIT](oit.md)
 
-### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M10 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6H12L10 4Z"/></svg> Pediatria](pediatria.md)
+### [<svg class="ikona-stazu" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> Pediatria](pediatria.md)
+

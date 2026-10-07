@@ -53,13 +53,17 @@
       color: inherit !important; /* Wymuszenie koloru tekstu bazowego (czarny/biały) */
     }
 
-    /* Ikony SVG dziedziczą kolor tekstu (czarno/białe) */
+    /* Ikony SVG dziedziczą kolor tekstu (czarno/białe), wersja konturowa */
     svg.ikona-stazu {
-      width: 24px;
-      height: 24px;
+      width: 28px;
+      height: 28px;
       vertical-align: text-bottom;
-      margin-right: 8px;
-      fill: currentColor;
+      margin-right: 10px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
   </style>
 </head>
