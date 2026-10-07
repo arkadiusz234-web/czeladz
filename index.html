@@ -323,7 +323,7 @@
         if(isChecked("inc_naczynie")) out.push(`- Dostęp naczyniowy: ${radio("naczynie")} | ${radio("zapalenie")}`);
         if(isChecked("inc_mocz")) {
             let m = `- Pęcherz moczowy: ${radio("mocz")}`;
-            if(radio("mocz") === "cewnik Foleya") m += ` (${radio("mocz_cecha")})`;
+            m += ` (${radio("mocz_cecha")})`;
             out.push(m);
         }
         
@@ -370,22 +370,16 @@
         const textarea = document.getElementById("output-status");
         if(textarea) textarea.value = finalStatus;
         
-        navigator.clipboard.writeText(finalStatus).then(() => {
-            alert("Status wygenerowany i skopiowany do schowka!");
-        }).catch(err => {
-            if(textarea) {
-                textarea.select();
-                document.execCommand('copy');
-            }
-            alert("Status wygenerowany i skopiowany do schowka!");
-        });
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(finalStatus).catch(err => {
+                if(textarea) { textarea.select(); document.execCommand('copy'); }
+            });
+        } else {
+            if(textarea) { textarea.select(); document.execCommand('copy'); }
+        }
+        alert("Status wygenerowany! Jeśli PDF się nie pobrał, skopiuj tekst z pola poniżej.");
         
-        const pdfContainer = document.createElement("div");
-        pdfContainer.style.padding = "30px";
-        pdfContainer.style.fontFamily = "Arial, sans-serif";
-        pdfContainer.style.fontSize = "12px";
-        pdfContainer.style.lineHeight = "1.6";
-        pdfContainer.innerHTML = finalStatus.replace(/\n/g, "<br>");
+        const htmlContent = '<div style="padding: 30px; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.6;">' + finalStatus.replace(/\n/g, "<br>") + '</div>';
         
         if(typeof html2pdf !== 'undefined') {
             html2pdf().set({
@@ -394,7 +388,7 @@
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            }).from(pdfContainer).save().then(() => {
+            }).from(htmlContent).save().then(() => {
                 let form = document.getElementById("chirurgia-form");
                 if(form) form.reset();
             });

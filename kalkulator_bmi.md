@@ -51,7 +51,7 @@ margin-top: 5px;
 </div>
 <div class="tool-row">
 <label>Waga (kg):</label>
-<input type="number" id="waga" class="tool-input" placeholder="np. 70" oninput="obliczBMI()">
+<input type="text" id="waga" class="tool-input" placeholder="np. 70" oninput="obliczBMI()">
 </div>
 <div id="wynik-box" class="bmi-result">
 <span id="wynik-liczba">--</span>
