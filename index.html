@@ -379,7 +379,7 @@
         }
         alert("Status wygenerowany! Jeśli PDF się nie pobrał, skopiuj tekst z pola poniżej.");
         
-        const htmlContent = '<div style="padding: 30px; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.6;">' + finalStatus.replace(/\n/g, "<br>") + '</div>';
+        const htmlContent = '<div style="background-color: #ffffff; color: #000000; padding: 30px; font-family: Arial, sans-serif; font-size: 12px; line-height: 1.6;">' + finalStatus.replace(/\n/g, "<br>") + '</div>';
         
         if(typeof html2pdf !== 'undefined') {
             html2pdf().set({
