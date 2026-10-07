@@ -82,28 +82,28 @@ body.is-dark-mode .guide-step h3 {
 </style>
 
 <div class="oprowadzacz-container">
-    <div class="form-section">
-        <div style="font-weight: bold; font-size: 1.2em; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">📋 Opcje przyjęcia (zmieniaj w locie, instrukcja poniżej dopasuje się sama)</div>
-        
-        <label><input type="checkbox" id="q_cukrzyca" onchange="updateGuide()"> Pacjent ma cukrzycę</label>
-        <label><input type="checkbox" id="q_cisnienie" onchange="updateGuide()"> Nadciśnienie na Izbie Przyjęć (SBP > 180, ew. > 170)</label>
-        <label><input type="checkbox" id="q_grupa" onchange="updateGuide()"> Posiada POTWIERDZONĄ grupę krwi w systemie/na papierze</label>
-        
-        <div style="margin-top: 15px;">
-            <div style="font-weight: 500; margin-bottom: 5px;">Planowany zabieg:</div>
-            <select id="q_zabieg" onchange="updateGuide()">
-                <option value="inny">Inny (standardowy)</option>
-                <option value="endoskopia">Kolonoskopia / Gastroskopia</option>
-                <option value="cholecystektomia">Cholecystektomia</option>
-                <option value="przepuklina">Przepuklina (np. pachwinowa)</option>
-                <option value="zylaki">Żylaki kończyn</option>
-                <option value="rak">Rak (CA)</option>
-            </select>
-        </div>
-    </div>
+<div class="form-section">
+<div style="font-weight: bold; font-size: 1.2em; margin-bottom: 15px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">📋 Opcje przyjęcia (zmieniaj w locie, instrukcja poniżej dopasuje się sama)</div>
 
-    <!-- Tu dynamicznie wpada instrukcja -->
-    <div id="dynamic-guide"></div>
+<label><input type="checkbox" id="q_cukrzyca" onchange="updateGuide()"> Pacjent ma cukrzycę</label>
+<label><input type="checkbox" id="q_cisnienie" onchange="updateGuide()"> Nadciśnienie na Izbie Przyjęć (SBP > 180, ew. > 170)</label>
+<label><input type="checkbox" id="q_grupa" onchange="updateGuide()"> Posiada POTWIERDZONĄ grupę krwi w systemie/na papierze</label>
+
+<div style="margin-top: 15px;">
+<div style="font-weight: 500; margin-bottom: 5px;">Planowany zabieg:</div>
+<select id="q_zabieg" onchange="updateGuide()">
+<option value="inny">Inny (standardowy)</option>
+<option value="endoskopia">Kolonoskopia / Gastroskopia</option>
+<option value="cholecystektomia">Cholecystektomia</option>
+<option value="przepuklina">Przepuklina (np. pachwinowa)</option>
+<option value="zylaki">Żylaki kończyn</option>
+<option value="rak">Rak (CA)</option>
+</select>
+</div>
+</div>
+
+<!-- Tu dynamicznie wpada instrukcja -->
+<div id="dynamic-guide"></div>
 </div>
 
 <!-- Automatyczne odpalenie po załadowaniu html przez docsify -->
