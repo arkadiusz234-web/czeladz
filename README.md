@@ -1,8 +1,9 @@
 # Czeladź Staż
 
-Wybierz oddział z poniższej listy, aby przejść do szczegółów:
 
 <br>
+
+### [[CAŁY FOLDER]](https://drive.google.com/drive/folders/1-5WAn01JIN8dwUzSb4gwZi-GjkCASWv9?usp=drive_link)
 
 ### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> [PERSONALIZOWANE]](personalizowane.md)
 

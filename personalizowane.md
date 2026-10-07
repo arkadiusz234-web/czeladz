@@ -5,3 +5,7 @@
     <svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Otwórz folder (pliki)
   </a>
 </div>
+
+
+### 📁 Pliki w folderze
+<iframe src="https://drive.google.com/embeddedfolderview?id=1uKye__JAPFqEqHlV4i7WH5XkGxf3u-X_#list" width="100%" height="350" frameborder="0" style="border: 1px solid currentColor; border-radius: 8px; margin-bottom: 20px;"></iframe>

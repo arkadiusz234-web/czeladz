@@ -9,6 +9,12 @@
   </a>
 </div>
 
+
+
+### 📁 Pliki w folderze
+<iframe src="https://drive.google.com/embeddedfolderview?id=11eOckKSf7R7roQ9bZfgaEqf6l1bzVriE#list" width="100%" height="350" frameborder="0" style="border: 1px solid currentColor; border-radius: 8px; margin-bottom: 20px;"></iframe>
+
 <hr style="margin: 30px 0;">
+### 📝 Główne notatki
 
 <iframe src="https://drive.google.com/file/d/1F0xLg4qJV_TocKAmM3Fws5Hw3RSG6WFoVFvFDUZpOtc/preview" width="100%" height="900" frameborder="0" style="border: 1px solid currentColor; border-radius: 8px;"></iframe>
