@@ -2,6 +2,16 @@
 
 <br>
 
+## <strong class="menu-tools"><svg class="ikona-stazu menu-tools-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Narzędzia</strong>
+
+### [> Statusy (Chirurgia)](statusy_chirurgia.md)
+### [> Kalkulator BMI](kalkulator_bmi.md)
+### [> Oprowadzacz po przyjęciu (Chirurgia)](oprowadzacz_przyjecie.md)
+
+<br>
+<hr style="opacity: 0.2;">
+<br>
+
 ### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> CAŁY FOLDER (wszystkie staże)](https://drive.google.com/drive/folders/1-5WAn01JIN8dwUzSb4gwZi-GjkCASWv9?usp=drive_link)
 
 ### [<svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> [PERSONALIZOWANE]](personalizowane.md)
