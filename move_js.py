@@ -1,170 +1,30 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <title>Czeladź Staż</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Strona stażowa">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
-  <!-- Google Fonts: Poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Docsify Darklight Theme -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css" type="text/css" />
+import os
 
-  <style>
-    /* Podstawowe ustawienia */
-    body {
-      font-family: 'Poppins', sans-serif !important;
-      line-height: 1.8;
-      text-align: left;
-    }
-    
-    .sidebar {
-      font-family: 'Poppins', sans-serif !important;
-      text-align: left;
-    }
-    
-    .sidebar-nav li>a {
-      font-size: 16.5px;
-      font-weight: 500;
-    }
-    
-    /* Hierarchia nagłówków (każdy mniejszy o ok. 1.5x od poprzedniego) */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif !important;
-      text-align: left;
-      font-weight: 600;
-    }
-    
-    h1 { font-size: 2.25em; }    /* Zazwyczaj bazowo ~3.375em, więc ułamek: 3.375 / 1.5 = 2.25 */
-    h2 { font-size: 1.5em; }     /* 2.25 / 1.5 = 1.5 */
-    h3 { font-size: 1.0em; }     /* 1.5 / 1.5 = 1.0 */
-    h4 { font-size: 0.66em; }    /* 1.0 / 1.5 = 0.66 */
-    h5 { font-size: 0.44em; }    /* 0.66 / 1.5 = 0.44 */
-    
-    /* Czysty, B&W wygląd linków */
-    .markdown-section a:not([class]) {
-      text-decoration: underline;
-      font-weight: 600;
-      color: inherit !important; /* Wymuszenie koloru tekstu bazowego (czarny/biały) */
-    }
+# 1. Update statusy_chirurgia.md
+if os.path.exists("statusy_chirurgia.md"):
+    with open("statusy_chirurgia.md", "r") as f:
+        content = f.read()
+    # Remove the script block
+    script_start = content.find("<!-- Użycie zewnętrznej")
+    if script_start != -1:
+        content = content[:script_start]
+        with open("statusy_chirurgia.md", "w") as f:
+            f.write(content)
+        print("Removed script from statusy_chirurgia.md")
 
-    /* Ikony SVG dziedziczą kolor tekstu (czarno/białe), wersja konturowa */
-    svg.ikona-stazu {
-      width: 28px;
-      height: 28px;
-      vertical-align: text-bottom;
-      margin-right: 10px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+# 2. Update kalkulator_bmi.md
+if os.path.exists("kalkulator_bmi.md"):
+    with open("kalkulator_bmi.md", "r") as f:
+        content = f.read()
+    script_start = content.find("<script>")
+    if script_start != -1:
+        content = content[:script_start]
+        with open("kalkulator_bmi.md", "w") as f:
+            f.write(content)
+        print("Removed script from kalkulator_bmi.md")
 
-    /* Kolory narzędzi w pasku bocznym */
-    .menu-tools { color: #d32f2f !important; }
-    .menu-tools-icon { stroke: #d32f2f !important; }
-    body.is-dark-mode .menu-tools { color: #ff5252 !important; }
-    body.is-dark-mode .menu-tools-icon { stroke: #ff5252 !important; }
-
-    /* Iframe domyślnie (jasny motyw) */
-    iframe {
-      background-color: white; /* Baza dla dokumentów google */
-      transition: filter 0.3s ease;
-    }
-    
-    /* Iframe w trybie ciemnym (dodawane przez JS) */
-    body.is-dark-mode iframe {
-      filter: invert(0.92) hue-rotate(180deg) contrast(0.9);
-    }
-
-    /* Usunięcie tytułu "Czeladź Staż" z samego sidebara */
-    .app-name {
-      display: none !important;
-    }
-  </style>
-</head>
-<body>
-  <div id="app">Ładowanie...</div>
-  <script>
-    window.$docsify = {
-      name: 'Czeladź Staż',
-      repo: '',
-      loadSidebar: true,
-      subMaxLevel: 2,
-      auto2top: true,
-      executeScript: true,
-      darklightTheme: {
-        siteFont : 'Poppins, sans-serif',
-        defaultTheme : 'light',
-        codeFontFamily : 'monospace',
-        bodyFontSize : '18px',
-        dark: {
-          iframeFilter: 'invert(0.92) hue-rotate(180deg) contrast(0.9)', /* Ciemny motyw dla Google Docs */
-          accent: '#ffffff',          /* Usunięto kolor - biały akcent */
-          toogleBackground : '#ffffff',
-          background: '#000000',      /* Głęboka czerń */
-          textColor: '#ffffff',       /* Czysta biel */
-          codeTextColor : '#ffffff',
-          codeBackgroundColor : '#1a1a1a',
-          borderColor : '#ffffff',
-          blockQuoteColor : '#e0e0e0',
-          highlightColor : '#ffffff',
-          sidebarSublink : '#ffffff',
-          codeTypeColor : '#ffffff',
-          coverBackground : 'transparent',
-          toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/sun.svg)'
-        },
-        light: {
-          iframeFilter: 'none', /* Jasny motyw dla Google Docs */
-          accent: '#000000',          /* Usunięto kolor - czarny akcent */
-          toogleBackground : '#000000',
-          background: '#ffffff',
-          textColor: '#000000',       /* Totalnie czarny tekst w trybie jasnym */
-          codeTextColor : '#000000',
-          codeBackgroundColor : '#f0f0f0',
-          borderColor : '#000000',
-          blockQuoteColor : '#333333',
-          highlightColor : '#000000',
-          sidebarSublink : '#000000',
-          codeTypeColor : '#000000',
-          coverBackground : 'transparent',
-          toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/moon.svg)'
-        }
-      }
-    }
-  </script>
-  
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- Docsify Darklight Theme Script -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
-
-  <!-- JS do zarządzania iframem w trybie ciemnym -->
-  <script>
-    function updateIframeTheme() {
-      const isDark = localStorage.getItem('DARK_LIGHT_THEME') === 'dark';
-      document.body.classList.toggle('is-dark-mode', isDark);
-    }
-    
-    window.addEventListener('load', () => {
-      updateIframeTheme(); // Ustaw od razu po załadowaniu
-      
-      // Nasłuchuj kliknięć gdziekolwiek na stronie (głównie na #docsify-darklight-theme)
-      document.addEventListener('click', (e) => {
-        // Opóźnienie 50ms, żeby wtyczka darklightTheme najpierw zdążyła zapisać status w localStorage
-        if(e.target.closest('#docsify-darklight-theme') || e.target.id === 'docsify-darklight-theme') {
-          setTimeout(updateIframeTheme, 50);
-        }
-      });
-    });
-  </script>
-
+# 3. Update index.html
+js_logic = """
   <!-- Zewnętrzne biblioteki do narzędzi -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
@@ -365,7 +225,7 @@
             out.push(`Uwagi dodatkowe: ${val("dodatkowe_info")}`);
         }
         
-        const finalStatus = out.join("\n");
+        const finalStatus = out.join("\\n");
         
         const textarea = document.getElementById("output-status");
         if(textarea) textarea.value = finalStatus;
@@ -385,7 +245,7 @@
         pdfContainer.style.fontFamily = "Arial, sans-serif";
         pdfContainer.style.fontSize = "12px";
         pdfContainer.style.lineHeight = "1.6";
-        pdfContainer.innerHTML = finalStatus.replace(/\n/g, "<br>");
+        pdfContainer.innerHTML = finalStatus.replace(/\\n/g, "<br>");
         
         if(typeof html2pdf !== 'undefined') {
             html2pdf().set({
@@ -404,5 +264,13 @@
     };
   </script>
 </body>
+"""
 
-</html>
+if os.path.exists("index.html"):
+    with open("index.html", "r") as f:
+        html = f.read()
+    if "window.generujStatus =" not in html:
+        html = html.replace("</body>", js_logic)
+        with open("index.html", "w") as f:
+            f.write(html)
+        print("Injected JS into index.html")
