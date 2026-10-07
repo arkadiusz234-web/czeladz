@@ -65,6 +65,13 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+
+    /* Iframe w trybie ciemnym */
+    iframe {
+      filter: var(--iframe-filter, none);
+      background-color: white; /* Baza dla dokumentów google */
+      transition: filter 0.3s ease;
+    }
   </style>
 </head>
 <body>
@@ -79,10 +86,11 @@
       executeScript: true,
       darklightTheme: {
         siteFont : 'Poppins, sans-serif',
-        defaultTheme : 'dark',
+        defaultTheme : 'light',
         codeFontFamily : 'monospace',
         bodyFontSize : '18px',
         dark: {
+          iframeFilter: 'invert(0.92) hue-rotate(180deg) contrast(0.9)', /* Ciemny motyw dla Google Docs */
           accent: '#ffffff',          /* Usunięto kolor - biały akcent */
           toogleBackground : '#ffffff',
           background: '#000000',      /* Głęboka czerń */
@@ -98,6 +106,7 @@
           toogleImage : 'url(https://cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/icons/sun.svg)'
         },
         light: {
+          iframeFilter: 'none', /* Jasny motyw dla Google Docs */
           accent: '#000000',          /* Usunięto kolor - czarny akcent */
           toogleBackground : '#000000',
           background: '#ffffff',

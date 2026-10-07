@@ -6,6 +6,8 @@
   </a>
 </div>
 
+<br>
 
-### 📁 Pliki w folderze
+### <svg class="ikona-stazu" viewBox="0 0 24 24"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/></svg> Pliki w folderze
+
 <iframe src="https://drive.google.com/embeddedfolderview?id=1uKye__JAPFqEqHlV4i7WH5XkGxf3u-X_#list" width="100%" height="350" frameborder="0" style="border: 1px solid currentColor; border-radius: 8px; margin-bottom: 20px;"></iframe>
