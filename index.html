@@ -66,11 +66,61 @@
       stroke-linejoin: round;
     }
 
-    /* Iframe w trybie ciemnym */
+    /* Iframe domyślnie (jasny motyw) */
     iframe {
-      filter: var(--iframe-filter, none);
       background-color: white; /* Baza dla dokumentów google */
       transition: filter 0.3s ease;
+    }
+    
+    /* Iframe w trybie ciemnym (dodawane przez JS) */
+    body.is-dark-mode iframe {
+      filter: invert(0.92) hue-rotate(180deg) contrast(0.9);
+    }
+
+    /* Wygląd na urządzeniach mobilnych */
+    @media screen and (max-width: 768px) {
+      /* Zrobienie miejsca na pasek */
+      body {
+        padding-top: 55px !important;
+      }
+      
+      /* Symulacja górnego paska */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 55px;
+        background-color: var(--background, #fff);
+        border-bottom: 1px solid var(--borderColor, #ccc);
+        z-index: 1000;
+      }
+
+      /* Przycisk paska bocznego (hamburger) obok zmiany motywu na lewo */
+      body .sidebar-toggle {
+        position: fixed !important;
+        top: 8px !important;
+        left: 10px !important;
+        bottom: auto !important;
+        width: 40px !important;
+        height: 40px !important;
+        background: transparent !important;
+        padding: 10px !important;
+        border: none !important;
+        z-index: 1001 !important;
+      }
+
+      /* Przycisk motywu (Docsify Darklight Theme) */
+      #docsify-darklight-theme {
+        position: fixed !important;
+        top: 13px !important;
+        left: 60px !important;
+        right: auto !important;
+        width: 30px !important;
+        height: 30px !important;
+        z-index: 1001 !important;
+      }
     }
   </style>
 </head>
@@ -129,5 +179,25 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <!-- Docsify Darklight Theme Script -->
   <script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>
+
+  <!-- JS do zarządzania iframem w trybie ciemnym -->
+  <script>
+    function updateIframeTheme() {
+      const isDark = localStorage.getItem('DARK_LIGHT_THEME') === 'dark';
+      document.body.classList.toggle('is-dark-mode', isDark);
+    }
+    
+    window.addEventListener('load', () => {
+      updateIframeTheme(); // Ustaw od razu po załadowaniu
+      
+      // Nasłuchuj kliknięć gdziekolwiek na stronie (głównie na #docsify-darklight-theme)
+      document.addEventListener('click', (e) => {
+        // Opóźnienie 50ms, żeby wtyczka darklightTheme najpierw zdążyła zapisać status w localStorage
+        if(e.target.closest('#docsify-darklight-theme') || e.target.id === 'docsify-darklight-theme') {
+          setTimeout(updateIframeTheme, 50);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
