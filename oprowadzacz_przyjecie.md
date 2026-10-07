@@ -5,16 +5,13 @@
 padding: 0;
 }
 .form-section {
-background: #f8f9fa;
+background: var(--codeBackgroundColor, #f8f9fa);
 padding: 20px;
 border-radius: 8px;
-border: 1px solid #e1e4e8;
+border: 1px solid var(--borderColor, #e1e4e8);
 margin-bottom: 25px;
 box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-body.is-dark-mode .form-section {
-background: #1e1e1e;
-border-color: #333;
+color: var(--textColor, #000);
 }
 .form-section label {
 display: flex;
@@ -29,43 +26,32 @@ width: 100%;
 padding: 10px;
 font-size: 1em;
 border-radius: 6px;
-border: 1px solid #ccc;
-background: #fff;
+border: 1px solid var(--borderColor, #ccc);
+background: var(--background, #fff);
+color: var(--textColor, #000);
 margin-top: 5px;
 }
-body.is-dark-mode .form-section select {
-background: #2d2d2d;
-color: #fff;
-border-color: #555;
-}
-
 #dynamic-guide {
 display: flex;
 flex-direction: column;
 gap: 20px;
 }
 .guide-step {
-background: #ffffff;
+background: var(--codeBackgroundColor, #ffffff);
 border-left: 5px solid #3498db;
 padding: 20px;
 border-radius: 6px;
 box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-body.is-dark-mode .guide-step {
-background: #252525;
-border-left-color: #2980b9;
+color: var(--textColor, #000);
 }
 .guide-step h3 {
 margin-top: 0;
 margin-bottom: 15px;
 font-size: 1.3em;
-color: #2c3e50;
+color: var(--textColor, #2c3e50);
 display: flex;
 align-items: center;
 gap: 10px;
-}
-body.is-dark-mode .guide-step h3 {
-color: #ecf0f1;
 }
 .guide-step ul {
 margin: 0;
