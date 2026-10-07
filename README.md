@@ -2,11 +2,18 @@
 
 <br>
 
-## <strong class="menu-tools"><svg class="ikona-stazu menu-tools-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Narzędzia</strong>
+<div style="font-size: 1.5em; font-weight: bold; margin-bottom: 10px;">
+  <strong class="menu-tools">
+    <svg class="ikona-stazu menu-tools-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> 
+    Narzędzia
+  </strong>
+</div>
 
-### [> Statusy (Chirurgia)](statusy_chirurgia.md)
-### [> Kalkulator BMI](kalkulator_bmi.md)
-### [> Oprowadzacz po przyjęciu (Chirurgia)](oprowadzacz_przyjecie.md)
+<div style="margin-left: 10px; line-height: 2;">
+  <a href="#/statusy_chirurgia" style="font-size: 1.1em; font-weight: bold; text-decoration: none;">> Statusy (Chirurgia)</a><br>
+  <a href="#/kalkulator_bmi" style="font-size: 1.1em; font-weight: bold; text-decoration: none;">> Kalkulator BMI</a><br>
+  <a href="#/oprowadzacz_przyjecie" style="font-size: 1.1em; font-weight: bold; text-decoration: none;">> Oprowadzacz po przyjęciu (Chirurgia)</a>
+</div>
 
 <br>
 <hr style="opacity: 0.2;">

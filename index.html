@@ -402,9 +402,10 @@
     };
   </script>
 
+<script>
 function genJednorazowe() {
     let out = [];
-    out.push("Co dokładnie wpisać w tabelę ZLECENIA JEDNORAZOWE:\n");
+    out.push("Co dokładnie wpisać w tabelę ZLECENIA JEDNORAZOWE:\\n");
     
     let cisnienie = document.getElementById("q_cisnienie").checked;
     
@@ -423,9 +424,9 @@ function genJednorazowe() {
     }
     
     let box = document.getElementById("out_jednorazowe");
-    box.innerText = out.join("\n");
+    box.innerText = out.join("\\n");
     box.style.display = "block";
-    kopiuj(out.join("\n"));
+    kopiuj(out.join("\\n"));
 }
 
 function genBadania() {
@@ -434,7 +435,7 @@ function genBadania() {
     let grupa = document.getElementById("q_grupa").checked;
     let zabieg = document.getElementById("q_zabieg").value;
     
-    out.push("Co dokładnie wpisać w tabelę KONSULTACJE I BADANIA:\n");
+    out.push("Co dokładnie wpisać w tabelę KONSULTACJE I BADANIA:\\n");
     
     if (cukrzyca) {
         out.push("[ ] DPC (Dopisać w zleceniach badaniach z powodu cukrzycy)");
@@ -459,14 +460,14 @@ function genBadania() {
     out.push("[ ] Podstawowe badania laboratoryjne przed zabiegiem");
     
     let box = document.getElementById("out_badania");
-    box.innerText = out.join("\n");
+    box.innerText = out.join("\\n");
     box.style.display = "block";
-    kopiuj(out.join("\n"));
+    kopiuj(out.join("\\n"));
 }
 
 function genWywiad() {
     let out = [];
-    out.push("Zasady uzupełniania badania podmiotowego i przedmiotowego:\n");
+    out.push("Zasady uzupełniania badania podmiotowego i przedmiotowego:\\n");
     
     out.push("1. NIE OMIJAJ ŻADNEJ KRATKI!");
     out.push("   - Jeśli pacjent nie ma innych dolegliwości, w pustych polach wpisz: 'neguje', 'nie zgłasza', 'jak wyżej', 'nie było' lub 'brak'.");
@@ -482,30 +483,30 @@ function genWywiad() {
     
     let zabieg = document.getElementById("q_zabieg").value;
     if(zabieg === "przepuklina") {
-        out.push("\nSkróty dla przepuklin (do użycia w karcie):");
+        out.push("\\nSkróty dla przepuklin (do użycia w karcie):");
         out.push("- HID: hernia inguinalis dextra (pachwinowa prawa)");
         out.push("- HIS: hernia inguinalis sinistra (pachwinowa lewa)");
         out.push("- HIB: hernia inguinalis bilateralis (pachwinowa obustronna)");
         out.push("- HU: hernia umbilicalis (pępkowa)");
         out.push("- HV: hernia ventricularis/lineae albae (brzuszna/kresy białej)");
     } else if (zabieg === "rak") {
-        out.push("\nSkróty onkologiczne (do użycia w karcie):");
+        out.push("\\nSkróty onkologiczne (do użycia w karcie):");
         out.push("- CA: Carcinoma (rak)");
         out.push("- Recti: prostnicy");
         out.push("- Sigmoidei: esicy");
         out.push("- Ceci: kątnicy");
     } else if (zabieg === "zylaki") {
-        out.push("\nSkróty żylaków (do użycia w karcie):");
+        out.push("\\nSkróty żylaków (do użycia w karcie):");
         out.push("- VEIS: żylaki KD lewej");
         out.push("- VEID: żylaki KD prawej");
     }
     
-    out.push("\n[!] W razie wątpliwości na izbie dzwoń po 'dużego' lekarza: 283.");
+    out.push("\\n[!] W razie wątpliwości na izbie dzwoń po 'dużego' lekarza: 283.");
 
     let box = document.getElementById("out_wywiad");
-    box.innerText = out.join("\n");
+    box.innerText = out.join("\\n");
     box.style.display = "block";
-    kopiuj(out.join("\n"));
+    kopiuj(out.join("\\n"));
 }
 
 function kopiuj(tekst) {
@@ -513,6 +514,7 @@ function kopiuj(tekst) {
         navigator.clipboard.writeText(tekst).catch(err => console.log(err));
     }
 }
-\n</body>
+</script>
+</body>
 
 </html>
