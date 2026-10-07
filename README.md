@@ -1,4 +1,3 @@
-# Czeladź Staż
 
 
 <br>
