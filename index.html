@@ -403,118 +403,106 @@
   </script>
 
 <script>
-function genJednorazowe() {
-    let out = [];
-    out.push("Co dokładnie wpisać w tabelę ZLECENIA JEDNORAZOWE:\\n");
-    
-    let cisnienie = document.getElementById("q_cisnienie").checked;
-    
-    if (cisnienie) {
-        out.push("[ ] Captopril 12,5 mg s.l. (lub 25mg)");
-        out.push("    -> UWAGA: Wpisz obok godzinę pomiaru i wartość ciśnienia (np. 180/110).");
-        out.push("    -> Podbij się za osobą podającą lek i wpisz godzinę podania!");
-    }
-    
-    out.push("[ ] Ewentualna profilaktyka antybiotykowa na blok operacyjny (np. Biofazolin 2,0g i.v. / Metronidazol 500mg i.v. - zgodnie z zaleceniem dla zabiegu).");
-    out.push("[ ] Ewentualne zlecenia płynów (np. PWE 500ml i.v. nawodnienie).");
-    out.push("[ ] Profilaktyka p/zakrzepowa (np. Clexane 40mg s.c. - podaj godzinę).");
-    
-    if(out.length === 1) {
-        out.push("Brak specjalnych zleceń dla zaznaczonego profilu pacjenta. Wpisz standardowe leki okołooperacyjne.");
-    }
-    
-    let box = document.getElementById("out_jednorazowe");
-    box.innerText = out.join("\\n");
-    box.style.display = "block";
-    kopiuj(out.join("\\n"));
-}
+function updateGuide() {
+    let cukrzyca = document.getElementById("q_cukrzyca") ? document.getElementById("q_cukrzyca").checked : false;
+    let cisnienie = document.getElementById("q_cisnienie") ? document.getElementById("q_cisnienie").checked : false;
+    let grupa = document.getElementById("q_grupa") ? document.getElementById("q_grupa").checked : false;
+    let zabieg = document.getElementById("q_zabieg") ? document.getElementById("q_zabieg").value : "inny";
 
-function genBadania() {
-    let out = [];
-    let cukrzyca = document.getElementById("q_cukrzyca").checked;
-    let grupa = document.getElementById("q_grupa").checked;
-    let zabieg = document.getElementById("q_zabieg").value;
-    
-    out.push("Co dokładnie wpisać w tabelę KONSULTACJE I BADANIA:\\n");
-    
-    if (cukrzyca) {
-        out.push("[ ] DPC (Dopisać w zleceniach badaniach z powodu cukrzycy)");
+    let html = "";
+
+    // 1. WPISZ W SYSTEM
+    html += "<div class='guide-step'>";
+    html += "<h3>🖥️ Krok 1: Wpisz w system</h3>";
+    html += "<ul>";
+    html += "<li><strong>Rozpoznanie:</strong> (wpisz odpowiednie dla zabiegu)</li>";
+    if (zabieg === "endoskopia") {
+        html += "<li><strong>Powód przyjęcia:</strong> <span class='highlight-red'>OBOWIĄZKOWO wpisz powód, dla którego robiona jest endoskopia!</span></li>";
+    } else {
+        html += "<li><strong>Powód przyjęcia:</strong> (uzupełnij)</li>";
     }
-    
-    if (zabieg === "cholecystektomia") {
-        out.push("[ ] Dietetyk (Konieczne zlecenie konsultacji dietetycznej przy cholecystektomii)");
-    }
+    html += "</ul>";
+    html += "</div>";
+
+    // 2. ZLEĆ W SYSTEMIE
+    html += "<div class='guide-step'>";
+    html += "<h3>💊 Krok 2: Zleć w systemie</h3>";
+    html += "<ul>";
+    html += "<li><strong>Zlecenia stałe:</strong> Użyj gotowca (np. <em>'planówka do zabiegu'</em>)</li>";
     
     if (zabieg === "endoskopia") {
-        out.push("[!] NIE ZLECAJ grupy krwi! (Czysta endoskopia nie wymaga grupy krwi).");
-        out.push("[!] Dopisz POWÓD PRZYJĘCIA przy zlecaniu zabiegu endoskopowego.");
+        html += "<li><strong class='highlight-red'>Uwaga (Grupa krwi):</strong> NIE ZLECAJ grupy krwi na czystą endoskopię!</li>";
     } else {
         if (grupa) {
-            out.push("[ ] Grupa krwi: W kratce 'Uwagi' wpisz: odpis z dn. XX.YY.ZZZZ (zaznaczając opcję 'wszystkie' w sekcji badania).");
+            html += "<li><strong>Grupa krwi:</strong> Zaznacz opcję 'wszystkie' -> w polu <em>Uwagi</em> wpisz: <strong>odpis z dn. XX.YY.ZZZZ</strong></li>";
         } else {
-            out.push("[ ] Grupa krwi (zlecenie badania, jeśli brak dokumentu).");
+            html += "<li><strong>Grupa krwi:</strong> Zleć badanie grupy krwi (brak potwierdzonego wyniku w systemie/na papierze).</li>";
         }
     }
     
-    out.push("[ ] EKG (Rutynowo przed zabiegiem)");
-    out.push("[ ] Podstawowe badania laboratoryjne przed zabiegiem");
+    if (cukrzyca) {
+        html += "<li><strong>Badania/Konsultacje:</strong> Dopisz <strong>DPC</strong>.</li>";
+    }
+    if (zabieg === "cholecystektomia") {
+        html += "<li><strong>Konsultacje:</strong> Zleć konsultację <strong>Dietetyka</strong>.</li>";
+    }
+    if (cisnienie) {
+        html += "<li><strong>Zlecenia jednorazowe:</strong> Zleć <strong>Captopril 12,5 mg s.l.</strong> (lub 25mg).<br><span style='color: #7f8c8d; font-size: 0.9em;'>-> Wpisz godzinę pomiaru i wartość ciśnienia (np. 180/110).<br>-> Podbij się za osobą podającą lek i wpisz godzinę podania!</span></li>";
+    }
     
-    let box = document.getElementById("out_badania");
-    box.innerText = out.join("\\n");
-    box.style.display = "block";
-    kopiuj(out.join("\\n"));
-}
+    html += "<li><strong>Inne badania:</strong> Zleć EKG oraz podstawowe badania laboratoryjne (jeśli nie było zlecone/zrobione).</li>";
+    html += "</ul>";
+    html += "</div>";
 
-function genWywiad() {
-    let out = [];
-    out.push("Zasady uzupełniania badania podmiotowego i przedmiotowego:\\n");
+    // 3. WYDRUKUJ
+    html += "<div class='guide-step'>";
+    html += "<h3>🖨️ Krok 3: Wydrukuj z systemu</h3>";
+    html += "<ul>";
+    html += "<li>Historia choroby / Karta informacyjna</li>";
+    html += "<li>Karta zleceń lekarskich (stałych, jednorazowych, badań/konsultacji)</li>";
+    html += "<li>Karta badania przedmiotowego (do wydruku i podpisu)</li>";
+    if (zabieg === "endoskopia") {
+        html += "<li><strong>Zgoda na endoskopię:</strong> <span class='highlight-red'>OBOWIĄZKOWO musi zawierać wydrukowany powód badania!</span></li>";
+    } else {
+        html += "<li>Zgoda na zabieg operacyjny (odpowiednia do rodzaju zabiegu)</li>";
+        html += "<li>Zgoda na znieczulenie (jeśli dotyczy)</li>";
+    }
+    html += "</ul>";
+    html += "</div>";
+
+    // 4. UZUPEŁNIJ (PAPIERY)
+    html += "<div class='guide-step'>";
+    html += "<h3>📝 Krok 4: Uzupełnij fizycznie (papiery)</h3>";
+    html += "<ul>";
+    html += "<li>Wypełnij stosowne druki i zgody</li>";
+    html += "<li><strong>Karta żywieniowa</strong> - wypełnij.</li>";
+    html += "<li><strong>Karta dupowa</strong> (ocena ryzyka odleżyn itp.) - wypełnij.</li>";
+    html += "<li><strong>Karta badania przedmiotowego:</strong> Upewnij się, że jest podpisana i ma pieczątkę.</li>";
+    html += "</ul>";
+    html += "</div>";
+
+    // 5. SZCZEGÓŁY WYWIADU
+    html += "<div class='guide-step'>";
+    html += "<h3>🔍 Krok 5: Szczegóły Wywiadu (Badanie podmiotowe/przedmiotowe)</h3>";
+    html += "<ul>";
+    html += "<li><strong>Nie omijaj żadnej kratki!</strong> Jeśli pacjent nie ma innych dolegliwości, wpisuj: <em>'neguje'</em>, <em>'brak'</em>, <em>'nie zgłasza'</em>, <em>'nie było'</em>. Zaznaczaj WIELE kratek jeśli pasują.</li>";
+    html += "<li><strong>Czego NIE wpisujemy w listę leków stałych:</strong> leków p/krzepliwych pacjenta, p/płytkowych, insuliny, leków p/cukrzycowych, wziewów, witamin (w tym żelaza).</li>";
     
-    out.push("1. NIE OMIJAJ ŻADNEJ KRATKI!");
-    out.push("   - Jeśli pacjent nie ma innych dolegliwości, w pustych polach wpisz: 'neguje', 'nie zgłasza', 'jak wyżej', 'nie było' lub 'brak'.");
-    out.push("   - Nie zostawiaj pustych kratek!");
-    out.push("2. KARTA LEKÓW STAŁYCH (czego NIE rozpisujemy):");
-    out.push("   - leków p/krzepliwych pacjenta");
-    out.push("   - leków p/płytkowych");
-    out.push("   - insuliny");
-    out.push("   - leków p/cukrzycowych");
-    out.push("   - wziewów");
-    out.push("   - witamin i suplementów (w tym żelaza)");
-    out.push("3. Zaznaczaj WIELE kratek jeśli pasują (np. przy oddechu, tętnie, brzuchu, zorientowaniu auto-allo psychicznym).");
-    
-    let zabieg = document.getElementById("q_zabieg").value;
-    if(zabieg === "przepuklina") {
-        out.push("\\nSkróty dla przepuklin (do użycia w karcie):");
-        out.push("- HID: hernia inguinalis dextra (pachwinowa prawa)");
-        out.push("- HIS: hernia inguinalis sinistra (pachwinowa lewa)");
-        out.push("- HIB: hernia inguinalis bilateralis (pachwinowa obustronna)");
-        out.push("- HU: hernia umbilicalis (pępkowa)");
-        out.push("- HV: hernia ventricularis/lineae albae (brzuszna/kresy białej)");
+    if (zabieg === "przepuklina") {
+        html += "<li><strong>Skróty do użycia:</strong><br>HID (pachwinowa pr.), HIS (pachwinowa lewa), HIB (obustronna), HU (pępkowa), HV (brzuszna).</li>";
     } else if (zabieg === "rak") {
-        out.push("\\nSkróty onkologiczne (do użycia w karcie):");
-        out.push("- CA: Carcinoma (rak)");
-        out.push("- Recti: prostnicy");
-        out.push("- Sigmoidei: esicy");
-        out.push("- Ceci: kątnicy");
+        html += "<li><strong>Skróty do użycia:</strong><br>CA (rak), Recti (prostnicy), Sigmoidei (esicy), Ceci (kątnicy).</li>";
     } else if (zabieg === "zylaki") {
-        out.push("\\nSkróty żylaków (do użycia w karcie):");
-        out.push("- VEIS: żylaki KD lewej");
-        out.push("- VEID: żylaki KD prawej");
+        html += "<li><strong>Skróty do użycia:</strong><br>VEIS (żylaki KD lewej), VEID (żylaki KD prawej).</li>";
     }
     
-    out.push("\\n[!] W razie wątpliwości na izbie dzwoń po 'dużego' lekarza: 283.");
+    html += "<li><strong class='highlight-red'>W razie wątpliwości na izbie:</strong> Dzwoń po 'dużego' lekarza (283).</li>";
+    html += "</ul>";
+    html += "</div>";
 
-    let box = document.getElementById("out_wywiad");
-    box.innerText = out.join("\\n");
-    box.style.display = "block";
-    kopiuj(out.join("\\n"));
+    let guideBox = document.getElementById("dynamic-guide");
+    if(guideBox) guideBox.innerHTML = html;
 }
 
-function kopiuj(tekst) {
-    if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(tekst).catch(err => console.log(err));
-    }
-}
 </script>
 </body>
-
-</html>
