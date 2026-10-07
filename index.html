@@ -166,7 +166,7 @@
   </script>
 
   <!-- Zewnętrzne biblioteki do narzędzi -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
 
   <!-- Globalna logika dla narzędzi ze stron markdown -->
   <script>
@@ -377,40 +377,28 @@
         } else {
             if(textarea) { textarea.select(); document.execCommand('copy'); }
         }
-        alert("Status wygenerowany! Jeśli PDF się nie pobrał, skopiuj tekst z pola poniżej.");
+        alert("Status pomyślnie wygenerowany! Właśnie pobrano plik tekstowy (.txt) i skopiowano go do schowka.");
         
-        const pdfContainer = document.createElement("div");
-        pdfContainer.style.backgroundColor = "#ffffff";
-        pdfContainer.style.color = "#000000";
-        pdfContainer.style.padding = "30px";
-        pdfContainer.style.fontFamily = "Arial, sans-serif";
-        pdfContainer.style.fontSize = "12px";
-        pdfContainer.style.lineHeight = "1.6";
-        pdfContainer.style.position = "absolute";
-        pdfContainer.style.top = "0";
-        pdfContainer.style.left = "0";
-        pdfContainer.style.zIndex = "-9999";
-        pdfContainer.style.width = "800px";
-        pdfContainer.innerHTML = finalStatus.replace(/\n/g, "<br>");
-        document.body.appendChild(pdfContainer);
+        // --- POBIERANIE JAKO ZWYKŁY PLIK TEKSTOWY (.txt) ---
+        const blob = new Blob([finalStatus], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
         
-        if(typeof html2pdf !== 'undefined') {
-            html2pdf().set({
-                margin: 10,
-                filename: `Status_${pacjent.replace(/[^a-z0-9]/gi, '_')}_${date}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, windowWidth: 800 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            }).from(pdfContainer).save().then(() => {
-                document.body.removeChild(pdfContainer);
-                let form = document.getElementById("chirurgia-form");
-                if(form) form.reset();
-            }).catch(err => {
-                document.body.removeChild(pdfContainer);
-            });
-        } else {
-            alert("Błąd: biblioteka html2pdf nie załadowała się prawidłowo.");
-        }
+        let safeName = pacjent.trim().replace(/[^a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ ]/g, "").replace(/\s+/g, "_");
+        if(safeName === "__________________" || !safeName) safeName = "Nieznany";
+        
+        a.href = url;
+        a.download = `Status_${safeName}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        
+        // Sprzątanie po pobraniu
+        setTimeout(() => {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            let form = document.getElementById("chirurgia-form");
+            if(form) form.reset();
+        }, 100);
     };
   </script>
 </body>

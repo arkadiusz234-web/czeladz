@@ -249,7 +249,7 @@ Diureza: <input type="text" id="param_diureza" placeholder="..."> ml
 <input type="text" id="dodatkowe_info" style="width: 100%; padding: 5px;" placeholder="...">
 </div>
 
-<button type="button" class="btn-generate" onclick="generujStatus()">Generuj, Kopiuj i Pobierz PDF</button>
+<button type="button" class="btn-generate" onclick="generujStatus()">Generuj, Kopiuj i Pobierz .TXT</button>
 </form>
 
 <textarea id="output-status" readonly placeholder="Tutaj pojawi się wygenerowany status..."></textarea>
