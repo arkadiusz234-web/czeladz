@@ -77,69 +77,9 @@
       filter: invert(0.92) hue-rotate(180deg) contrast(0.9);
     }
 
-    /* Wygląd paska górnego (Desktop + Mobile) */
-    body {
-      padding-top: 55px !important;
-    }
-    
-    /* Symulacja górnego paska */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 55px;
-      background-color: var(--background, #fff);
-      border-bottom: 1px solid var(--borderColor, #ccc);
-      z-index: 1000;
-    }
-
-    /* Odsunięcie paska bocznego w dół, by nie nachodził na top-bar */
-    .sidebar {
-      top: 55px !important;
-    }
-
     /* Usunięcie tytułu "Czeladź Staż" z samego sidebara */
     .app-name {
       display: none !important;
-    }
-
-    /* Przycisk paska bocznego (hamburger) */
-    body .sidebar-toggle {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      position: fixed !important;
-      top: 10px !important;
-      left: 15px !important;
-      bottom: auto !important;
-      width: 36px !important;
-      height: 36px !important;
-      background: transparent !important;
-      padding: 6px !important;
-      border: none !important;
-      z-index: 9999 !important;
-    }
-
-    /* Wymuszenie koloru pasków hamburgera */
-    body .sidebar-toggle span {
-      background-color: var(--textColor) !important;
-    }
-
-    /* Przycisk motywu (Docsify Darklight Theme) */
-    #docsify-darklight-theme {
-      display: block !important;
-      visibility: visible !important;
-      opacity: 1 !important;
-      position: fixed !important;
-      top: 15px !important;
-      left: 65px !important;
-      right: auto !important;
-      width: 25px !important;
-      height: 25px !important;
-      z-index: 9999 !important;
-      margin: 0 !important;
     }
   </style>
 </head>
