@@ -401,6 +401,118 @@
         }, 100);
     };
   </script>
-</body>
+
+function genJednorazowe() {
+    let out = [];
+    out.push("Co dokładnie wpisać w tabelę ZLECENIA JEDNORAZOWE:\n");
+    
+    let cisnienie = document.getElementById("q_cisnienie").checked;
+    
+    if (cisnienie) {
+        out.push("[ ] Captopril 12,5 mg s.l. (lub 25mg)");
+        out.push("    -> UWAGA: Wpisz obok godzinę pomiaru i wartość ciśnienia (np. 180/110).");
+        out.push("    -> Podbij się za osobą podającą lek i wpisz godzinę podania!");
+    }
+    
+    out.push("[ ] Ewentualna profilaktyka antybiotykowa na blok operacyjny (np. Biofazolin 2,0g i.v. / Metronidazol 500mg i.v. - zgodnie z zaleceniem dla zabiegu).");
+    out.push("[ ] Ewentualne zlecenia płynów (np. PWE 500ml i.v. nawodnienie).");
+    out.push("[ ] Profilaktyka p/zakrzepowa (np. Clexane 40mg s.c. - podaj godzinę).");
+    
+    if(out.length === 1) {
+        out.push("Brak specjalnych zleceń dla zaznaczonego profilu pacjenta. Wpisz standardowe leki okołooperacyjne.");
+    }
+    
+    let box = document.getElementById("out_jednorazowe");
+    box.innerText = out.join("\n");
+    box.style.display = "block";
+    kopiuj(out.join("\n"));
+}
+
+function genBadania() {
+    let out = [];
+    let cukrzyca = document.getElementById("q_cukrzyca").checked;
+    let grupa = document.getElementById("q_grupa").checked;
+    let zabieg = document.getElementById("q_zabieg").value;
+    
+    out.push("Co dokładnie wpisać w tabelę KONSULTACJE I BADANIA:\n");
+    
+    if (cukrzyca) {
+        out.push("[ ] DPC (Dopisać w zleceniach badaniach z powodu cukrzycy)");
+    }
+    
+    if (zabieg === "cholecystektomia") {
+        out.push("[ ] Dietetyk (Konieczne zlecenie konsultacji dietetycznej przy cholecystektomii)");
+    }
+    
+    if (zabieg === "endoskopia") {
+        out.push("[!] NIE ZLECAJ grupy krwi! (Czysta endoskopia nie wymaga grupy krwi).");
+        out.push("[!] Dopisz POWÓD PRZYJĘCIA przy zlecaniu zabiegu endoskopowego.");
+    } else {
+        if (grupa) {
+            out.push("[ ] Grupa krwi: W kratce 'Uwagi' wpisz: odpis z dn. XX.YY.ZZZZ (zaznaczając opcję 'wszystkie' w sekcji badania).");
+        } else {
+            out.push("[ ] Grupa krwi (zlecenie badania, jeśli brak dokumentu).");
+        }
+    }
+    
+    out.push("[ ] EKG (Rutynowo przed zabiegiem)");
+    out.push("[ ] Podstawowe badania laboratoryjne przed zabiegiem");
+    
+    let box = document.getElementById("out_badania");
+    box.innerText = out.join("\n");
+    box.style.display = "block";
+    kopiuj(out.join("\n"));
+}
+
+function genWywiad() {
+    let out = [];
+    out.push("Zasady uzupełniania badania podmiotowego i przedmiotowego:\n");
+    
+    out.push("1. NIE OMIJAJ ŻADNEJ KRATKI!");
+    out.push("   - Jeśli pacjent nie ma innych dolegliwości, w pustych polach wpisz: 'neguje', 'nie zgłasza', 'jak wyżej', 'nie było' lub 'brak'.");
+    out.push("   - Nie zostawiaj pustych kratek!");
+    out.push("2. KARTA LEKÓW STAŁYCH (czego NIE rozpisujemy):");
+    out.push("   - leków p/krzepliwych pacjenta");
+    out.push("   - leków p/płytkowych");
+    out.push("   - insuliny");
+    out.push("   - leków p/cukrzycowych");
+    out.push("   - wziewów");
+    out.push("   - witamin i suplementów (w tym żelaza)");
+    out.push("3. Zaznaczaj WIELE kratek jeśli pasują (np. przy oddechu, tętnie, brzuchu, zorientowaniu auto-allo psychicznym).");
+    
+    let zabieg = document.getElementById("q_zabieg").value;
+    if(zabieg === "przepuklina") {
+        out.push("\nSkróty dla przepuklin (do użycia w karcie):");
+        out.push("- HID: hernia inguinalis dextra (pachwinowa prawa)");
+        out.push("- HIS: hernia inguinalis sinistra (pachwinowa lewa)");
+        out.push("- HIB: hernia inguinalis bilateralis (pachwinowa obustronna)");
+        out.push("- HU: hernia umbilicalis (pępkowa)");
+        out.push("- HV: hernia ventricularis/lineae albae (brzuszna/kresy białej)");
+    } else if (zabieg === "rak") {
+        out.push("\nSkróty onkologiczne (do użycia w karcie):");
+        out.push("- CA: Carcinoma (rak)");
+        out.push("- Recti: prostnicy");
+        out.push("- Sigmoidei: esicy");
+        out.push("- Ceci: kątnicy");
+    } else if (zabieg === "zylaki") {
+        out.push("\nSkróty żylaków (do użycia w karcie):");
+        out.push("- VEIS: żylaki KD lewej");
+        out.push("- VEID: żylaki KD prawej");
+    }
+    
+    out.push("\n[!] W razie wątpliwości na izbie dzwoń po 'dużego' lekarza: 283.");
+
+    let box = document.getElementById("out_wywiad");
+    box.innerText = out.join("\n");
+    box.style.display = "block";
+    kopiuj(out.join("\n"));
+}
+
+function kopiuj(tekst) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(tekst).catch(err => console.log(err));
+    }
+}
+\n</body>
 
 </html>
