@@ -11,4 +11,4 @@
 
 <hr style="margin: 30px 0;">
 
-<iframe src="https://docs.google.com/document/d/1_AuEBA8L_14ntVGO19MDXETV75tyPshVmhtddkg6rww/preview" width="100%" height="900" frameborder="0" style="border: 1px solid currentColor; border-radius: 8px;"></iframe>
+<iframe src="https://drive.google.com/file/d/1_AuEBA8L_14ntVGO19MDXETV75tyPshVmhtddkg6rww/preview" width="100%" height="900" frameborder="0" style="border: 1px solid currentColor; border-radius: 8px;"></iframe>
